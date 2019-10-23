@@ -1,6 +1,9 @@
 import React from "react";
+
 import t from "tcomb-form-native";
 const Form = t.form.Form;
+
+import Input from "./templates/Input";
 
 export const LoginStruct = t.struct({
   user: t.String,
@@ -10,14 +13,24 @@ export const LoginStruct = t.struct({
 export const LoginOptions = {
   fields: {
     user: {
-      label: "Usuario (*)",
-      placeholder: "Usuario"
+      template: Input,
+      config: {
+        placeholder: "Introduce tu Usuario",
+        password: false,
+        secureTextEntry: false,
+        iconType: "font-awesome",
+        iconName: "user"
+      }
     },
     password: {
-      label: "Contraseña (*)",
-      placeholder: "Contraseña",
-      password: true,
-      secureTextEntry: true
+      template: Input,
+      config: {
+        placeholder: "Introduce tu Contraseña",
+        password: true,
+        secureTextEntry: true,
+        iconType: "font-awesome",
+        iconName: "lock"
+      }
     }
   }
 };
